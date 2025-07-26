@@ -5,26 +5,29 @@ import { type Votes, type VoteType } from '../types/votes';
 import VoteOptions from '../VoteOptions/VoteOptions';
 
 export default function App() {
-  const [votes, setVotes] = useState<Votes>({ good: 0, neutral: 0, bad: 0 });
-  // Створіть в App стан votes, який зберігатиме кількість голосів. Це буде об'єкт з властивостями
-  //Типізуй цей стан через інтерфейс Votes
-  //
-  //
+  const [votes, setVotes] = useState<Votes>({
+    // оголосив стан та типізував його
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
 
-  // Додай у App функції для роботи зі станом
-  //для оновлення стану голосів
-  //VoteType для типізації її параметра
-  const handleVote = (voteName: keyof VoteType) => {
-    console.log(votes);
+  const resetVotes = () => {
+    setVotes({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
 
-    // де буде - handleVote, у якому тегу???
+  // функція зміни стану
+  const handleVote = (voteName: VoteType) => {
     setVotes({ ...votes, [voteName]: votes[voteName] + 1 });
   };
   //
-  //
 
   //для скидання стану
-  const resetVotes = () => {};
+  // const resetVotes = () => {};
   //
 
   return (
@@ -32,7 +35,12 @@ export default function App() {
       <h1>React - домашня робота № 2</h1>
       <div className={css.app}>
         <CafeInfo />
-        <VoteOptions />
+        <VoteOptions
+          votes={votes}
+          onVote={handleVote}
+          onReset={resetVotes}
+          canReset={true}
+        />
       </div>
     </>
   );
