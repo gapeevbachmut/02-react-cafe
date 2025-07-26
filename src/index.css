@@ -4,13 +4,15 @@ body {
   /* min-width: 320px; */
   min-height: 100vh;
 
-  /* background-image: url(../public/fon.jpg); */
+  background-image: url(./assets/fon.jpeg);
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: center;
   background-size: cover;
   overflow: hidden
 }
 
 h1 {
   text-align: center;
+  margin: 0;
+  color: #0a66c2;
 }
