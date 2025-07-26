@@ -55,7 +55,7 @@ export default function App() {
 
         {totalVotes === 0 && <Notification />}
 
-        <img className={css.logo} src="/src/assets/react.svg" alt="react" />
+        <img className={css.logo} src="/react.svg" alt="react" />
       </div>
     </>
   );
